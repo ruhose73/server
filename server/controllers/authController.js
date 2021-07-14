@@ -16,32 +16,29 @@ class AuthController {
 
 
     async register (req,res,next) {
-        try {
+            const {login, password, role} = req.body;
 
-        } catch (err) {
-            return next(ApiError.internal('Ошибка сервера', err))
-        }
-
+            const candidate = await User.findOne({login})
+            if (candidate) {
+                return res.status(400).json({message: "Пользователь с таким именем уже существует"})
+            }
+            const hashPassword = bcrypt.hashSync(password, 7);
+            const user = new User({login, password: hashPassword, role})
+            await user.save()
+            return res.status(201)
     }
 
     async login (req,res,next) {
-        try {
 
-        } catch (err) {
-            return next(ApiError.internal('Ошибка сервера', err))
-        }
     }
 
     async check (req,res, next){
-        try {
+
             const token = generateJwt(req.user.id, req.user.login, req.user.role)
             if(!token) {
-                return next(ApiError.badRequest('Ошибка токена',1)) 
+                return next(ApiError.badRequest('Ошибка токена')) 
             }
             return res.json({token})
-        } catch (err) {
-            return next(ApiError.internal('Ошибка сервера', err))
-        }
     }
 }
 

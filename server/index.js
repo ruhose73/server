@@ -3,7 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const router = require('./routes/mergeRoutes')
-const errorHandler = require('./handler/errorHandler')
+const errorHandler = require('./middleware/errorHandlingMiddleware')
 const PORT = process.env.PORT || 5000
 
 
