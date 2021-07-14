@@ -20,12 +20,12 @@ class AuthController {
 
             const candidate = await User.findOne({login})
             if (candidate) {
-                return res.status(400).json({message: "Пользователь с таким именем уже существует"})
+                return next(ApiError.badRequest('Пользователь с таким email уже существует'))
             }
             const hashPassword = bcrypt.hashSync(password, 7);
             const user = new User({login, password: hashPassword, role})
             await user.save()
-            return res.status(201)
+            return res.status(201).json({message: "Пользователь создан"})
     }
 
     async login (req,res,next) {
@@ -38,7 +38,7 @@ class AuthController {
             if(!token) {
                 return next(ApiError.badRequest('Ошибка токена')) 
             }
-            return res.json({token})
+            return res.status(201).json({token})
     }
 }
 
