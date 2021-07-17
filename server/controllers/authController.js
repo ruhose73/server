@@ -13,8 +13,6 @@ const generateJwt = (id, login,role) => {
 
 class AuthController {
 
-
-
     async register (req,res,next) {
             const {login, password, role} = req.body;
 
