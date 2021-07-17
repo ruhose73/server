@@ -21,7 +21,8 @@ const start = async () => {
         
         await mongoose.connect('mongodb+srv://ruhose73:chegevara3000@cluster0.7zmzo.mongodb.net/university_ecosystem?retryWrites=true&w=majority', {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            useFindAndModify: false
         })
         app.listen(PORT, ()=>console.log('App has been started on port:', PORT))
 
