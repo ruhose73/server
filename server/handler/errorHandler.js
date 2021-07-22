@@ -18,6 +18,10 @@ class ApiError extends Error{
         return new ApiError(403,message)
     }
 
+    static pageNotFound(message) {
+        return new ApiError(404,message)
+    }
+
 }
 
 module.exports = ApiError
