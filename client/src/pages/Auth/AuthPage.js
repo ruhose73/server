@@ -41,12 +41,12 @@ class AuthPage extends React.Component {
                 <Col xs>
                     <h3 className="text-center heading">Sign in</h3>
                     <p className="text-center text-block text-secondary">
-                    Login using your username and password.
+                    Авторизируйтесь используя свой логин и пароль домена oiate.ru
                     </p>
                     <form onSubmit={this.onSubmit}>
                     <FormGroup>
                         <FormControl
-                        placeholder="Username"
+                        placeholder="Логин"
                         required
                         onChange={this.onChange}
                         value={this.state.user.username}
@@ -55,7 +55,7 @@ class AuthPage extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <FormControl
-                        placeholder="Password"
+                        placeholder="Пароль"
                         type="password"
                         required
                         onChange={this.onChange}
@@ -65,18 +65,13 @@ class AuthPage extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <Button variant="outline-success" block type="submit">
-                        LOGIN
+                        Авторизироваться
                         </Button>
                     </FormGroup>
                     </form>
                     <p className="text-center">
                     <Link to="/forgotpassword" className="text-info">
-                        Forgot Password?
-                    </Link>
-                    </p>
-                    <p className="text-center">
-                    <Link to="/signup" className="text-info">
-                        Don't have account? Click here.
+                        Забыли пароль?
                     </Link>
                     </p>
                 </Col>
