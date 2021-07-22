@@ -22,8 +22,10 @@ class AuthController {
             const hashPassword = bcrypt.hashSync(password, 7);
             const activationLink = uuid.v4()
             const user = await User.create({login,email, password: hashPassword, role, activationLink})
-            await MailService.sendActicationMail(email,activationLink)
-
+            const userLink = process.env.API_URL + '/universystem/authUser/activate/' + activationLink
+            console.log(userLink)
+            await MailService.sendActivationMail(email, userLink)
+            
             const userDto = new UserDto(user)
             const tokens = TokenService.generateToken({...userDto})
             await TokenService.saveToken(userDto.id, tokens.refreshToken)
@@ -67,11 +69,16 @@ class AuthController {
 
     async activate (req,res,next) {
         try {
-
+            const activationLink = req.params.link
+            const user = await User.findOne({activationLink})
+            if(!user) {
+                return res.status(400).json({message: "Неккоректная ссылка активации"})
+            }
+            const activate = await User.findOneAndUpdate({activationLink}, {isActivated: true}) 
+            return res.redirect(process.env.CLIENT_URL)
         } catch (e) {
             return next(ApiError.internal(e)) 
         }
-
     }
 
     async check (req,res, next){
