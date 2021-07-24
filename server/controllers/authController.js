@@ -24,7 +24,7 @@ class AuthController {
             const user = await User.create({login,email, password: hashPassword, role, activationLink})
             const userLink = process.env.API_URL + '/universystem/authUser/activate/' + activationLink
             console.log(userLink)
-            await MailService.sendActivationMail(email, userLink)
+            //! await MailService.sendActivationMail(email, userLink)
             
             const userDto = new UserDto(user)
             const tokens = TokenService.generateToken({...userDto})
