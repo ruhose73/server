@@ -24,6 +24,8 @@ class AuthController {
             const user = await User.create({login,email, password: hashPassword, role, activationLink})
             const userLink = process.env.API_URL + '/universystem/authUser/activate/' + activationLink
             console.log(userLink)
+
+            //! Проблема с google API, активации по почте пока что нет
             //! await MailService.sendActivationMail(email, userLink)
             
             const userDto = new UserDto(user)
