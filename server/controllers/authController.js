@@ -7,7 +7,6 @@ const MailService = require('../service/mail-service')
 const TokenService = require('../service/token-service')
 const UserDto = require('../dtos/user-dto')
 
-
 class AuthController {
 
     async register (req,res,next) {
@@ -72,16 +71,34 @@ class AuthController {
         } catch (e) {
             return next(ApiError.internal(e))   
         }
-
     }
 
     async refresh (req,res,next) {
         try {
 
+            const {refreshToken} = req.cookies
+            if(!refreshToken) {
+                return next(ApiError.badRequest(e))
+            }
+            const userData = TokenService.validateRefreshToken(refreshToken)
+            const tokenFromDb = await TokenService.findToken(refreshToken)
+
+            if (!tokenFromDb || !userData) {
+                return next(ApiError.badRequest(e))
+            }
+
+            const user = await User.findById(userData.id)
+            if(!user) {
+                return next(ApiError.badRequest(e))
+            }
+            const userDto = new UserDto(user)
+            const tokens = TokenService.generateToken({...userDto})
+            await TokenService.saveToken(userDto.id, tokens.refreshToken)
+            res.cookie('refreshToken', tokens.refreshToken, {maxAge:30 *24 * 60 * 60 * 1000, httpOnly: true})
+            return res.status(201).json({...tokens})
         } catch (e) {
             return next(ApiError.internal(e)) 
         }
-
     }
 
     async activate (req,res,next) {
