@@ -44,16 +44,31 @@ class AuthController {
 
     async login (req,res,next) {
         try {
-
+            const {email, password} = req.body;
+            const user = await User.findOne({email})
+            if(!user) {
+                return next(ApiError.badRequest(e))
+            }
+            const isPassEquals = await bcrypt.compare(password, user.password)
+            if(!isPassEquals) {
+                return next(ApiError.badRequest(e))
+            }
+            const userDto = new UserDto(user)
+            const tokens = TokenService.generateToken({...userDto})
+            await TokenService.saveToken(userDto.id, tokens.refreshToken)
+            res.cookie('refreshToken', tokens.refreshToken, {maxAge:30 *24 * 60 * 60 * 1000, httpOnly: true})
+            return res.status(201).json({...tokens})
         } catch (e) {
             return next(ApiError.internal(e)) 
         }
-
     }
 
     async logout (req,res,next) {
         try {
-
+            const {refreshToken} = req.cookies
+            const token = await TokenService.removeToken(refreshToken)
+            res.clearCookie('refreshToken') 
+            return res.json(token) 
         } catch (e) {
             return next(ApiError.internal(e)) 
         }
@@ -81,21 +96,6 @@ class AuthController {
         } catch (e) {
             return next(ApiError.internal(e)) 
         }
-    }
-
-    async check (req,res, next){
-
-        try {
-            const token = generateJwt(req.user.id, req.user.login, req.user.role)
-            if(!token) {
-                return next(ApiError.badRequest('Ошибка токена')) 
-            }
-            return res.json({token})
-
-        } catch (e) {
-            return next(ApiError.internal(e)) 
-        }
-
     }
 }
 
