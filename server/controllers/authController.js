@@ -84,7 +84,7 @@ class AuthController {
             const tokenFromDb = await TokenService.findToken(refreshToken)
 
             if (!tokenFromDb || !userData) {
-                return next(ApiError.badRequest(e))
+                return next(ApiError.UnauthorizedError())
             }
 
             const user = await User.findById(userData.id)

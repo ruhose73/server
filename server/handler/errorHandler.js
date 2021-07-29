@@ -21,6 +21,10 @@ class ApiError extends Error{
     static pageNotFound(message) {
         return new ApiError(404,message)
     }
+    
+    static UnauthorizedError() {
+        return new ApiError(401, 'Пользователь не авторизован')
+    }
 
 }
 
