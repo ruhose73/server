@@ -67,10 +67,10 @@ class AuthController {
         try {
             const {refreshToken} = req.cookies
             const token = await TokenService.removeToken(refreshToken)
-            res.clearCookie('refreshToken') 
-            return res.json(token) 
+            res.clearCookie('refreshToken');
+            return res.status(201).json({message:'Успешный выход'})
         } catch (e) {
-            return next(ApiError.internal(e)) 
+            return next(ApiError.internal(e))   
         }
 
     }
