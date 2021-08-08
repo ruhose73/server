@@ -1,5 +1,5 @@
-class groupService {
+class GroupService {
 
 }
 
-module.exports = new groupService();
+module.exports = new GroupService();

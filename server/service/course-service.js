@@ -1,5 +1,5 @@
-class courseService {
+class CourseService {
 
 }
 
-module.exports = new courseService();
+module.exports = new CourseService();
