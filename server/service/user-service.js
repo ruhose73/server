@@ -1,8 +1,6 @@
 const User = require('../models/User')
 const Group = require('../models/Group')
-
 const UserInfo = require('../dtos/user-info')
-const jwt = require('jsonwebtoken')
 
 
 class UserService {
