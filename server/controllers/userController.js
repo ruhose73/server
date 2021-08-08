@@ -11,8 +11,10 @@ class UserController {
             if (!userId) {
                 return next(ApiError.UnauthorizedError())
             }
-            const userInfo = UserService.getInfoById(userId)
+            console.log(userId)
+            const userInfo = await UserService.getInfoById(userId)
             if(!userInfo) {
+                console.log(userInfo)
                 return next(ApiError.internal())
             }
             return res.status(201).json({...userInfo})

@@ -20,7 +20,7 @@ class AuthController {
             }
             const hashPassword = bcrypt.hashSync(password, 7);
             const activationLink = uuid.v4()
-            const user = await User.create({login,email, password: hashPassword, role, activationLink, group})
+            const user = await User.create({login,email, password: hashPassword, role, activationLink, groupName:group})
             const userLink = process.env.API_URL + '/universystem/authUser/activate/' + activationLink
             console.log(userLink)
 
