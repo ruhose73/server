@@ -10,7 +10,7 @@ class UserService {
     getInfoById(userId) {
         try{
             const user = await User.findById(userId)
-            const group = await Group.findById(user.group)
+            const group = await Group.findOne({groupName: user.group})
             const userInfo = new UserInfo(user, group)
             return userInfo
         } catch (e) {

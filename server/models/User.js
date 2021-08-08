@@ -7,7 +7,7 @@ const User = new Schema({
     role: {type:Number, required:true, default: "1"},
     isActivated: {type:Boolean, default: false},
     activationLink: {type: String},
-    group: {type: Schema.Types.ObjectId, ref: 'Group'}
+    group: {type: String, required:true}
 })
 
 module.exports = model('User', User)

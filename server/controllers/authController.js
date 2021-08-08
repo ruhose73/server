@@ -12,7 +12,7 @@ class AuthController {
     async register (req,res,next) {
 
         try{
-            const {login,email, password, role} = req.body;
+            const {login,email, password, role, group} = req.body;
 
             const candidate = await User.findOne({login})
             if (candidate) {
@@ -20,7 +20,7 @@ class AuthController {
             }
             const hashPassword = bcrypt.hashSync(password, 7);
             const activationLink = uuid.v4()
-            const user = await User.create({login,email, password: hashPassword, role, activationLink})
+            const user = await User.create({login,email, password: hashPassword, role, activationLink, group})
             const userLink = process.env.API_URL + '/universystem/authUser/activate/' + activationLink
             console.log(userLink)
 
