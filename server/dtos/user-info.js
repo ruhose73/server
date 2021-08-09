@@ -17,6 +17,7 @@ module.exports = class UserInfo {
         this.year = group.year
         this.courseName = courses.courseName
         this.teacherID = courses.teacherID
+        this.teacherName = courses.teacherName
         this.courseType = courses.courseType
     }
 }
