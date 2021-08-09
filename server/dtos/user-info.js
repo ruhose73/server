@@ -7,7 +7,7 @@ module.exports = class UserInfo {
     year        //Год обучения
     courseName  //Название курса
     teacherID   //id преподавателя
-    teacherName //имя преподавателя
+    //teacherName //имя преподавателя
     courseType  //тип курса (экзамен/зачет)
 
     constructor(user, group, courses) {
@@ -18,7 +18,7 @@ module.exports = class UserInfo {
         this.year = group.year
         this.courseName = courses.courseName
         this.teacherID = courses.teacherID
-        this.teacherName = courses.teacherName
+        //this.teacherName = courses.teacherName
         this.courseType = courses.courseType
     }
 }

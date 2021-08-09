@@ -15,6 +15,7 @@ class GroupService {
     async createGroup (groupName,groupType,year,students) {
         try{
             const createGroup = await Group.create({groupName,groupType,year,students})
+            console.log(createGroup)
             return createGroup
         } catch(e) {
             return null
@@ -24,6 +25,7 @@ class GroupService {
     async addStudentToGroup (groupId,students) {
         try{
             const addStudent = await Group.findByIdAndUpdate({groupId}, {$push: { students } }) 
+            console.log(addStudent)
             return addStudent
         } catch(e) {
             return null
@@ -33,6 +35,7 @@ class GroupService {
     async addCoursesToGroup (groupId,courses) {
         try{
             const addCourses = await Group.findByIdAndUpdate({groupId}, {$push: { courses } }) 
+            console.log(addCourses)
             return addCourses
         } catch(e) {
             return null
