@@ -1,5 +1,5 @@
 const ApiError = require('../handler/errorHandler')
-const UserService = require('../service/user-service')
+const InfoService = require('../service/info-service')
 const TokenService = require('../service/token-service')
 
 class UserController {
@@ -12,7 +12,7 @@ class UserController {
                 return next(ApiError.UnauthorizedError())
             }
             console.log(userId)
-            const userInfo = await UserService.getInfoById(userId)
+            const userInfo = await InfoService.getAllInfoByUserId(userId)
             if(!userInfo) {
                 console.log(userInfo)
                 return next(ApiError.internal())
