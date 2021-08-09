@@ -24,7 +24,7 @@ class CourseService {
 
     async addGroupToCourse (courseId,groups) {
         try{
-            const addGroup = await Course.findByIdAndUpdate({courseId}, {$push: { courses } }) 
+            const addGroup = await Course.findByIdAndUpdate({courseId}, {$push: { groups } }) 
             console.log(addGroup)
             return addGroup
         } catch(e) {
