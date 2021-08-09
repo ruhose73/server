@@ -11,7 +11,6 @@ class CourseController {
             if (!courseName || !teacherID || !courseType) {
                 return next(ApiError.internal())
             }
-            //! добавить поиск имени учителя по id
             const teacher = await UserService.getUserInfoById(teacherID)
             const createCourse = await CourseService.createCourse(courseName,teacherID,courseType, teacher)
             return res.status(201).json({...createCourse})
