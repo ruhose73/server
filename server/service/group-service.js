@@ -30,7 +30,7 @@ class GroupService {
         }
     }
 
-    async addCoursesToGroup (groupId,students) {
+    async addCoursesToGroup (groupId,courses) {
         try{
             const addCourses = await Group.findByIdAndUpdate({groupId}, {$push: { courses } }) 
             return addCourses
