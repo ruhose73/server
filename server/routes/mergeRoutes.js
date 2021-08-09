@@ -8,7 +8,7 @@ const groupRoutes = require('./groupRoutes')
 const courseRoutes = require('./courseRoutes')
 
 router.use('/authUser', authRoutes)
-router.use('/user', authMiddleware, userRoutes)
+router.use('/user', userRoutes)
 router.use('/group', groupRoutes)
 router.use('/course', courseRoutes)
 

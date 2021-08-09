@@ -22,6 +22,21 @@ class UserController {
             return next(ApiError.internal(e))
         }
     }
+
+    async getInfo (req,res,next) {
+        try {
+            const {userId} = req.body
+            console.log(userId)
+            const userInfo = await InfoService.getAllInfoByUserId(userId)
+            if(!userInfo) {
+                console.log(userInfo)
+                return next(ApiError.internal())
+            }
+            return res.status(201).json({...userInfo})
+        } catch (e) {
+            return next(ApiError.internal(e))
+        }
+    }
 }
 
 module.exports = new UserController()

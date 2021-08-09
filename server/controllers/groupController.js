@@ -10,6 +10,7 @@ class GroupController {
                 return next(ApiError.internal())
             }
             const createGroup = await GroupService.createGroup(groupName,groupType,year,students)
+            console.log(createGroup)
             return res.status(201).json({...createGroup})
         } catch (e) {
             return next(ApiError.internal(e))
