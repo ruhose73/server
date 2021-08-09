@@ -12,9 +12,9 @@ class CourseService {
         }
     }
 
-    async createCourse(courseName,teacherID,courseType) {
+    async createCourse(courseName,teacherID,teacher,courseType) {
         try{
-            const createCourse = await Course.create({courseName,teacherID,courseType})
+            const createCourse = await Course.create({courseName,teacherID,teacherName:teacher.name,courseType})
             console.log(createCourse)
             return createCourse
         } catch(e) {

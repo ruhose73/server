@@ -1,5 +1,7 @@
 const ApiError = require('../handler/errorHandler')
 const CourseService = require('../service/course-service')
+const UserService = require('../service/user-service')
+
 
 class CourseController {
 
@@ -9,7 +11,9 @@ class CourseController {
             if (!courseName || !teacherID || !courseType) {
                 return next(ApiError.internal())
             }
-            const createCourse = await CourseService.createCourse(courseName,teacherID,courseType)
+            //! добавить поиск имени учителя по id
+            const teacher = await UserService.getUserInfoById(teacherID)
+            const createCourse = await CourseService.createCourse(courseName,teacherID,courseType, teacher)
             return res.status(201).json({...createCourse})
         } catch (e) {
             return next(ApiError.internal(e))
