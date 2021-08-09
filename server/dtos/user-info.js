@@ -7,6 +7,7 @@ module.exports = class UserInfo {
     year        //Год обучения
     courseName  //Название курса
     teacherID   //id преподавателя
+    teacherName //имя преподавателя
     courseType  //тип курса (экзамен/зачет)
 
     constructor(user, group, courses) {
