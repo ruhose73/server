@@ -30,3 +30,8 @@ This section here: <https://github.com/file-sharing-erp-team/university-ecosyste
 - `jsonwebtoken` - <https://www.npmjs.com/package/jsonwebtoken>
 - `sequelize` - <https://www.npmjs.com/package/sequelize>
 - `nodemon` - <https://www.npmjs.com/package/nodemon>
+
+### Developers
+
+ruhose73 Mikhail Toropchinov (Back-end): <https://github.com/ruhose73>
+sigarachi Maksim Dmitriev (Front-end): <https://github.com/sigarachi>
