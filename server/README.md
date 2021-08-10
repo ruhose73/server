@@ -1,28 +1,19 @@
 # Getting Started with server
 
-
 ## Preparing to launch
-
-3.  In the project directory, you should run: `cd Server`
-
-4.  In the project directory, you should run: `npm i`
+1.  In the project directory, you should run: `cd Server`
+2.  In the project directory, you should run: `npm i`
 
 
 ## Launch
-
 To launch the app enter: `npm run server` in the project directory.
 > In this mode, the server will automatically reboot after saving the project files
 
 ## Links
-
-### Issues
-This section here: https://github.com/file-sharing-erp-team/file-sharing-erp/issues
-
 ### Homepage
-This section here: https://github.com/file-sharing-erp-team/file-sharing-erp#readme
+This section here: https://github.com/file-sharing-erp-team/university-ecosystem
 
 ## Libraries
-
 *  `bcrypt` - https://www.npmjs.com/package/bcrypt
 *  `cors` - https://www.npmjs.com/package/cors
 *  `cookie-parser` - https://www.npmjs.com/package/cookie-parser
