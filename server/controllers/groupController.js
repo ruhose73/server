@@ -9,7 +9,8 @@ class GroupController {
             if (!groupName || !groupType || !year || !students) {
                 return next(ApiError.internal())
             }
-            const createGroup = await GroupService.createGroup(groupName,groupType,year,students)
+            const groupNameUp = groupName.toUpperCase()
+            const createGroup = await GroupService.createGroup(groupNameUp,groupType,year,students)
             console.log(createGroup)
             return res.status(201).json({...createGroup})
         } catch (e) {
