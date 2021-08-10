@@ -3,10 +3,6 @@
 
 ## Preparing to launch
 
-1.	Download postgresql from https://www.postgresql.org/download/
-
-2.  Create database with name `file_sharing`
-
 3.  In the project directory, you should run: `cd Server`
 
 4.  In the project directory, you should run: `npm i`
