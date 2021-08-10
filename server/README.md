@@ -15,7 +15,7 @@ To launch the app enter: `npm run server` in the project directory.
 
 ### Homepage
 
-This section here: <https://github.com/file-sharing-erp-team/university-ecosystem>
+This section here - <https://github.com/file-sharing-erp-team/university-ecosystem>
 
 ## Libraries
 
@@ -33,5 +33,5 @@ This section here: <https://github.com/file-sharing-erp-team/university-ecosyste
 
 ### Developers
 
-ruhose73 Mikhail Toropchinov (Back-end): <https://github.com/ruhose73>
-sigarachi Maksim Dmitriev (Front-end): <https://github.com/sigarachi>
+- `ruhose73` Mikhail Toropchinov (Back-end) - <https://github.com/ruhose73>
+- `sigarachi` Maksim Dmitriev (Front-end) - <https://github.com/sigarachi>
