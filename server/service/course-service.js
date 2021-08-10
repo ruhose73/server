@@ -34,10 +34,3 @@ class CourseService {
 }
 
 module.exports = new CourseService();
-
-//courseName: {type:String, unique:true, required:true},    +
-//teacherID: {type: Schema.Types.ObjectId, ref: 'User'},    +
-//teacherName: {type:String, required:true},    +
-//imgPath: {type:String},       
-//courseType: {type:String},    +
-//groups: [{type: Schema.Types.ObjectId, ref: 'Group'}]  

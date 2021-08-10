@@ -1,0 +1,54 @@
+# Getting Started with server
+
+
+## Preparing to launch
+
+1.	Download postgresql from https://www.postgresql.org/download/
+
+2.  Create database with name `file_sharing`
+
+3.  In the project directory, you should run: `cd Server`
+
+4. Create `.env` file ( if not exist ) with this content, so that each value is on a new line:
+
+    * `PORT=`
+    * `DB_NAME=`
+    * `DB_USER=`
+    * `DB_PASSWORD=`
+    * `DB_HOST=`
+    * `DB_PORT=`
+    * `SECRET_KEY=`
+    
+5.  Enter database connection details and your SECRET_KEY in `.env` file immediately after the `=` sign. 
+If your database was created with a different name, enter your database_name opposite `DB_NAME=`.
+
+6.  In the project directory, you should run: `npm i`
+
+
+
+## Launch
+
+To launch the app enter: `npm run server` in the project directory.
+> In this mode, the server will automatically reboot after saving the project files
+
+## Links
+
+### Issues
+This section here: https://github.com/file-sharing-erp-team/file-sharing-erp/issues
+
+### Homepage
+This section here: https://github.com/file-sharing-erp-team/file-sharing-erp#readme
+
+## Libraries
+
+*  `bcrypt` - https://www.npmjs.com/package/bcrypt
+*  `cors` - https://www.npmjs.com/package/cors
+*  `cookie-parser` - https://www.npmjs.com/package/cookie-parser
+*  `mongoose` - https://www.npmjs.com/package/mongoose
+*  `nodemailer` - https://www.npmjs.com/package/nodemailer
+*  `dotenv` - https://www.npmjs.com/package/dotenv
+*  `uuid` - https://www.npmjs.com/package/uuid
+*  `express` - https://www.npmjs.com/package/express
+*  `jsonwebtoken` - https://www.npmjs.com/package/jsonwebtoken
+*  `sequelize` - https://www.npmjs.com/package/sequelize
+*  `nodemon` - https://www.npmjs.com/package/nodemon
