@@ -32,5 +32,6 @@ This section here - <https://github.com/file-sharing-erp-team/university-ecosyst
 - `nodemon` - <https://www.npmjs.com/package/nodemon>
 
 ### Developers
+
 - `Back-end` [Mikhail Toropchinov (ruhose73)](https://github.com/ruhose73)
 - `Front-end` [Maksim Dmitriev (sigarachi)](https://github.com/sigarachi)
