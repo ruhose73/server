@@ -10,5 +10,5 @@ University Ecosystem Web-app
 
 ### Developers
 
-- `Back-end` [Mikhail Toropchinov (ruhose73)](https://github.com/ruhose73)
-- `Front-end` [Maksim Dmitriev (sigarachi)](https://github.com/sigarachi)
+- [Mikhail Toropchinov (ruhose73) `Back-end`](https://github.com/ruhose73)
+- [Maksim Dmitriev (sigarachi) `Front-end`](https://github.com/sigarachi)
