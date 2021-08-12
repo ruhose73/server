@@ -6,3 +6,4 @@ University Ecosystem Web-app
 
 - [Server](https://github.com/file-sharing-erp-team/university-ecosystem/tree/main/server)
 - [Client](https://github.com/file-sharing-erp-team/university-ecosystem/tree/main/client)
+- [License](https://github.com/file-sharing-erp-team/university-ecosystem/blob/main/LICENSE)
