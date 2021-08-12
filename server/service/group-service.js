@@ -20,7 +20,7 @@ class GroupService {
         } catch(e) {
             return null
         }
-    }
+    }       
 
     async addStudentToGroup (groupId,students) {
         try{
