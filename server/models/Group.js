@@ -1,11 +1,11 @@
-const {Schema, model} = require('mongoose')
+const sequelize = require('../config/db')
+const {DataTypes} = require('sequelize')
 
-const Group = new Schema({
-    groupName: {type:String, unique:true, required:true},   //Название группы
-    groupType: {type:String, required:true},                //Бакалавриат/магистратура/аспирантура
-    year: {type:Number, required:true},                     //Год обучения
-    students: [{type: Schema.Types.ObjectId, ref: 'User'}], //Студенты группы (массив)
-    courses: [{type: Schema.Types.ObjectId, ref: 'Course'}] //Предметы (массив)
+const Group = sequelize.define('group', {
+
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement:true},
+    group_name: {type: DataTypes.STRING, required: true, unique: true},
+    group_type: {type: DataTypes.INTEGER, required: true, defaultValue:0},
 })
 
-module.exports = model('Group', Group)
+module.exports = Group

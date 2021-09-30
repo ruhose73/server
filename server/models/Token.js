@@ -1,8 +1,16 @@
-const {Schema, model} = require('mongoose')
+const sequelize = require("../config/db");
+const {DataTypes} = require('sequelize')
+const User = require('./User')
 
-const Token = new Schema({
-    user: {type: Schema.Types.ObjectId, ref: 'User'},   //Пользователь
-    refreshToken: {type:String, required:true}          //Рефреш токен
+const Token = sequelize.define('token', {
+
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement:true},
+    user_id: {type: DataTypes.INTEGER, required: true, references: {
+            model: User,
+            key: "id"
+        }},
+    refreshToken: {type: DataTypes.STRING, required: true},
 })
 
-module.exports = model('Token', Token)
+module.exports = Token
+

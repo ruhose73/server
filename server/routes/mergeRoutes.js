@@ -1,15 +1,9 @@
 const Router = require('express')
 const router = new Router
-const authMiddleware = require('../middleware/authMiddleware')
 
-const authRoutes = require('./authRoutes')
-const userRoutes = require('./userRoutes')
-const groupRoutes = require('./groupRoutes')
-const courseRoutes = require('./courseRoutes')
+const AuthRouter = require('./authRouter')
 
-router.use('/authUser', authRoutes)
-router.use('/user', userRoutes)
-router.use('/group', groupRoutes)
-router.use('/course', courseRoutes)
+//  http://localhost:5000/ecosystem/auth
+router.use('/auth', AuthRouter)
 
 module.exports = router

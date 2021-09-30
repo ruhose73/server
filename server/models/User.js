@@ -1,14 +1,26 @@
-const {Schema, model} = require('mongoose')
+const sequelize = require('../config/db')
+const {DataTypes} = require('sequelize')
+const Group = require('./Group')
 
-const User = new Schema({
-    login: {type:String, unique:true, required:true},   //Login
-    email: {type:String, unique:true, required:true},   //Email
-    name: {type: String, required:true},                //ФИО
-    password: {type:String, required:true},             //Пароль
-    role: {type:Number, required:true, default: "1"},   //Роль (студент, преподаватель, работник)
-    isActivated: {type:Boolean, default: false},        //Статус активации
-    activationLink: {type: String},                     //Ссылка на активацию
-    groupName: {type:String, required:true}             //Имя группы 
+const User = sequelize.define('user', {
+
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement:true},
+    email: {type: DataTypes.STRING, required: true, unique: true},
+    phone: {type: DataTypes.STRING},
+    password: {type: DataTypes.STRING, required: true},
+
+    first_name: {type: DataTypes.STRING},
+    middle_name: {type: DataTypes.STRING},
+    last_name: {type: DataTypes.STRING},
+    group_id: {type: DataTypes.INTEGER, required: true, references: {
+            model: Group,
+            key: "id"
+        }},
+
+    role: {type: DataTypes.INTEGER, required: true, defaultValue:0},
+
+    activationLink: {type: DataTypes.STRING, allowNull: true},
+    isActivated: {type: DataTypes.BOOLEAN,default: false }
 })
 
-module.exports = model('User', User)
+module.exports = User
