@@ -23,7 +23,7 @@
  *         author: Alexander K. Dewdney
  */
 /**
- * 
+ *
  * @swagger
  * tags:
  *   name: Books
