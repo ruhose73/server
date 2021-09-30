@@ -23,12 +23,14 @@
  *         author: Alexander K. Dewdney
  */
 /**
+ * 
  * @swagger
  * tags:
  *   name: Books
  *   description: The books managing API
  */
 /**
+ *
  * @swagger
  * /books:
  *   get:
