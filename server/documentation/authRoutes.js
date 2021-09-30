@@ -28,7 +28,6 @@
  *   name: sdsd
  *   description: The books managing API
  */
-
 /**
  * @swagger
  * /ssdf:
